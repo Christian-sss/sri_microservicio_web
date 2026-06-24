@@ -1,0 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="/WEB-INF/jsp/components/page-start.jsp" />
+<section class="content-panel report-grid">
+    <article class="chart-panel"><div class="chart-title"><h3>Reporte de modos</h3><span>PDF de funcionamiento del sistema</span></div><form action="/reportes/modos" method="get" class="stack-form"><label>Fecha inicio<input type="date" name="fechaInicio"></label><label>Fecha fin<input type="date" name="fechaFin"></label><label>Cultivo<select name="cultivoId"><option value="">Todos los cultivos</option><c:forEach var="cultivo" items="${cultivos}"><option value="${cultivo.id}">${cultivo.nombre}</option></c:forEach></select></label><button class="btn" type="submit"><i class="fa-solid fa-file-pdf"></i> Descargar PDF</button></form></article>
+    <article class="chart-panel"><div class="chart-title"><h3>Reporte de consumo</h3><span>PDF por agua usada y cultivo</span></div><form action="/reportes/consumo" method="get" class="stack-form"><label>Fecha inicio<input type="date" name="fechaInicio"></label><label>Fecha fin<input type="date" name="fechaFin"></label><label>Cultivo<select name="cultivoId"><option value="">Todos los cultivos</option><c:forEach var="cultivo" items="${cultivos}"><option value="${cultivo.id}">${cultivo.nombre}</option></c:forEach></select></label><button class="btn blue" type="submit"><i class="fa-solid fa-download"></i> Descargar PDF</button></form></article>
+</section>
+<jsp:include page="/WEB-INF/jsp/components/page-end.jsp" />
