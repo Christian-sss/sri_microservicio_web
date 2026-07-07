@@ -50,7 +50,7 @@ public class AuthWebController extends BaseWebController {
         }
 
         try {
-            Map<?, ?> response = apiClient.post("/auth/login", new AuthRequest(email, password), Map.class, session);
+            Map<?, ?> response = apiClient.post("/api/auth/login", new AuthRequest(email, password), Map.class, session);
             session.setAttribute("usuario", response.get("usuario"));
             return "redirect:/dashboard";
         } catch (SriApiException exception) {
