@@ -18,7 +18,7 @@
         <div class="login-brand"><div class="brand-icon"><i class="fa-solid fa-leaf"></i></div><div><h1>SRI Riego Inteligente</h1><span>Panel de monitoreo y control</span></div></div>
         <jsp:include page="/WEB-INF/jsp/components/messages.jsp" />
         <form action="/login" method="post" class="stack-form">
-            <label>Correo o usuario<input type="text" name="username" value="${username}" autocomplete="username" required autofocus></label>
+            <label>Correo o usuario<input type="text" name="email" value="${email}" autocomplete="username" required autofocus></label>
             <label>Contrasena<input type="password" name="password" autocomplete="current-password" required></label>
             <div class="captcha-box">
                 <div class="captcha-header">
