@@ -38,19 +38,19 @@ public class AuthWebController extends BaseWebController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username,
+    public String login(@RequestParam String email,
                         @RequestParam String password,
                         @RequestParam String captcha,
                         HttpSession session,
                         RedirectAttributes redirectAttributes) {
         if (!captchaService.isValid(captcha, session)) {
             redirectAttributes.addFlashAttribute("error", "Captcha incorrecto. Intenta nuevamente.");
-            redirectAttributes.addFlashAttribute("username", username);
+            redirectAttributes.addFlashAttribute("username", email);
             return "redirect:/login";
         }
 
         try {
-            Map<?, ?> response = apiClient.post("/auth/login", new AuthRequest(username, password), Map.class, session);
+            Map<?, ?> response = apiClient.post("/auth/login", new AuthRequest(email, password), Map.class, session);
             session.setAttribute("usuario", response.get("usuario"));
             return "redirect:/dashboard";
         } catch (SriApiException exception) {
