@@ -54,7 +54,8 @@ public class AuthWebController extends BaseWebController {
             session.setAttribute("usuario", response.get("usuario"));
             return "redirect:/dashboard";
         } catch (SriApiException exception) {
-            redirectAttributes.addFlashAttribute("error", "Usuario o contrasena incorrectos.");
+            exception.printStackTrace();
+            redirectAttributes.addFlashAttribute("error", "Error API: " + exception.getMessage());
             return "redirect:/login";
         }
     }
