@@ -25,7 +25,9 @@
         <a href="/reportes" class="nav-item-link ${active == 'reportes' ? 'active' : ''}" title="Reportes">
             <i class="fa-solid fa-file-lines"></i><span class="nav-label">Reportes</span>
         </a>
-
+        <a href="/chat" class="nav-item-link ${active == 'chat' ? 'active' : ''}" title="Asistente">
+            <i class="fa-solid fa-comments"></i><span class="nav-label">Asistente</span>
+        </a>
     </nav>
 
     <div class="sidebar-footer">
